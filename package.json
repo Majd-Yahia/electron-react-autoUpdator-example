@@ -1,6 +1,6 @@
 {
   "name": "electron-react-example",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "main": "public/main.js",
   "repository": {
@@ -16,7 +16,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "deploy": "electron-builder build --publish always",
+    "deploy": "electron-builder build -c.extraMetadata.main=public/main.js --publish always",
     "dist": "electron-builder",
     "lint": "echo \"No linting configured\""
   },
@@ -75,13 +75,11 @@
   "build": {
     "appId": "electron-react.updater.app",
     "productName": "Electron-React Auto Updater",
+    "extends": null,
     "win": {
-      "target": "nsis",
-      "icon": "src/icon.ico"
+      "target": "nsis"
     },
     "nsis": {
-      "installerIcon": "src/icon.ico",
-      "uninstallerIcon": "src/icon.ico",
       "uninstallDisplayName": "Electron-React Auto Updater",
       "license": "license.txt",
       "oneClick": false,
